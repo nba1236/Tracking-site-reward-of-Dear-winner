@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Track Your Item</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 50px; }
+    input { padding: 10px; font-size: 16px; width: 300px; }
+    button { padding: 10px 20px; font-size: 16px; }
+    .result { margin-top: 20px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <h1>📦 Track Your Package</h1>
+  <input type="text" id="trackingNumber" placeholder="Enter tracking number">
+  <button onclick="trackItem()">Track</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    function trackItem() {
+      const trackingNumber = document.getElementById("trackingNumber").value;
+      const resultDiv = document.getElementById("result");
+
+      // Simulated tracking data
+      const fakeDatabase = {
+        "ABC123": "in Accra",
+        "XYZ789": "out for delivery",
+        "DEF456": "delivered yesterday"
+      };
+
+      if (trackingNumber in fakeDatabase) {
+        resultDiv.innerHTML = `Your item with tracking number <strong>${trackingNumber}</strong> is <strong>${fakeDatabase[trackingNumber]}</strong>.`;
+      } else {
+        resultDiv.innerHTML = `❌ Tracking number <strong>${trackingNumber}</strong> not found.`;
+      }
+    }
+  </script>
+</body>
+</html>
